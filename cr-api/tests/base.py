@@ -20,7 +20,6 @@ def app():
     settings.update({"url": "mongodb://localhost:27017/test_crunch_fitness"})
     if _app is None:
         _app = webtest.TestApp(get_app())
-        load_data(_here + '/../../cr-db/tests/data/users.json', settings, clear=True)
     return _app
 
 
@@ -28,3 +27,5 @@ class TestBase(object):
 
     def setup(self):
         self.app = app()
+        load_data(_here + '/../../cr-db/tests/data/users.json', settings, clear=True)
+        cherrypy.config.update({'tools.sessions.on': True})

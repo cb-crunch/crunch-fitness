@@ -16,7 +16,8 @@ setup(
     license='Proprietary',
     install_requires=['CherryPy',
                       'cr.db',
-                      'webtest'
+                      'webtest',
+                      'numpy'
                       ],
     tests_require=[],
     packages=find_packages(exclude=['ez_setup']),
