@@ -34,10 +34,10 @@ available system memory. For example, '_get_distance' raises a MemoryError when 
 pairwise-distinct distances for about 6000 locations on a test system with 8GB RAM. One approach to handling a
 large number of user locations is outlined in the "Implementation Details" section below.
 
-All routes are intended to respond to regular browser requests, as opposed to AJAX requests. Some response 
-properties would need to be modified to respond to AJAX requests. For example, if the 'users' route was intended
-to respond to an AJAX GET request, then it would return a 401 response status code when accessed by an
-unauthenticated user rather than a 303 (302 for HTTP/1.0 requests) status code.
+All routes are intended to handle "normal" browser requests rather than AJAX or other web API client requests.
+We would need to change the response properties of some routes to respond to web API client requests and AJAX
+requests. For example, the 'users' route would return a 401 response status code when accessed by an unauthenticated
+user via a web API client, rather than its current 303 (302 for HTTP/1.0 requests) response status code.
 
 The 'distances' route does not require authentication. This assumption is based on a) lack of authentication
 requirements in the exercise description, and b) this route provides only aggregate, anonymous data whose
