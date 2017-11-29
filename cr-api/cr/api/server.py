@@ -185,7 +185,7 @@ class Root(object):
         ]
         if len(locations) < 2:
             return {'error': 'Not enough users to provide distance statistics.'}
-        distance = self._get_distance(locations) #[np.triu_indices(len(locations), 1)]
+        distance = self._get_distance(locations)
         return {
             'min': np.min(distance),
             'max': np.max(distance),
